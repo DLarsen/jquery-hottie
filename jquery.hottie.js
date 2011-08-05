@@ -1,16 +1,16 @@
 
 ;(function($) {
 
-    $.fn.hothot = function(el, options) {
+    $.fn.hottie = function(options) {
     
       var plugin = $(this);
       
       var init = function() {
-        var max = parseFloat($(plugin[0]).html());
-        var min = parseFloat($(plugin[0]).html());
+        var max = settings.readValue($(plugin[0]));
+        var min = settings.readValue($(plugin[0]));
         
         plugin.each(function() {
-          var val = getVal($(this));
+          var val = settings.readValue($(this));
           min = Math.min( min, val );
           max = Math.max( max, val );
           $(this).data('val', val);
@@ -22,15 +22,21 @@
           var adj = val - min;
           var pct = 1.0 * adj / range;
           var c = getColor(pct);
-          console.log(c);
           $(this).css('background-color', c);
         });
       };
 
-      // default behavior
-      var getVal = function(e) {
+    var settings = {
+      readValue : function(e) {
         return parseFloat(e.html());
       }
+    };
+
+      if ( options ) { 
+        $.extend( settings, options );
+      }
+
+
 
       function hex2num(hex) {
         if(hex.charAt(0) == "#") hex = hex.slice(1); //Remove the '#' char - if there is one.
