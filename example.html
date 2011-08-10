@@ -1,45 +1,66 @@
 <!doctype html>
 <head>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>-->
+<script src="jquery.js"></script>
 <script src="jquery.hottie.js"></script>
 
 </head>
 
 <body>
 
-<ul id="test">
+<ul id="test1">
   <li>1</li>
   <li>2</li>
   <li>3</li>
-  <li>5</li>
-  <li>15</li>
-  <li>12</li>
   <li>4</li>
+  <li>5</li>
+  <li>6</li>
+  <li>7</li>
 </ul>
 
 <ul id="test2">
 
-  <li><span>1</span></li>
-  <li><span>2</span></li>
-  <li><span>3</span></li>
-  <li><span>4</span></li>
-  <li><span>5</span></li>
-  <li><span>6</span></li>
-  <li><span>7</span></li>
+  <li data-hist="1.1">Alabama</li>
+  <li data-hist="1.2">Alaska</li>
+  <li data-hist="1.3">Arizona</li>
+  <li data-hist="2.1">Arkansas</li>
+  <li data-hist="2.4">California</li>
+  <li data-hist="2.8">Colorado</li>
+  <li data-hist="2.9">Connecticut</li>
 
 </ul>
+
+<ul id="test3">
+  <li>1</li>
+  <li>2</li>
+  <li>3</li>
+  <li>4</li>
+  <li>5</li>
+  <li>6</li>
+  <li>7</li>
+</ul>
+
+
 <script>
   $(function(){
-    //$("#test li").hottie();
-    $("#test2 li").hottie(
-      {
+    /*
+    $("#test1 li").hottie();
+
+    $("#test2 li").hottie({
       readValue : function(e) {
-        var x = $(e).children(":first").html();
-        console.log(e);
-        return parseFloat(x);
+        return $(e).attr("data-hist");
       }
-    }
-    );
+    });
+    */
+
+    $("#test3 li").hottie({
+      colorArray : [ 
+        "#0000FF",
+        "#999999"
+      ]
+    });
+
+
   });
 </script>
 </body>

@@ -6,11 +6,11 @@
     var plugin = $(this);
     
     var init = function() {
-      var max = settings.readValue($(plugin[0]));
-      var min = settings.readValue($(plugin[0]));
+      var max = parseFloat(settings.readValue($(plugin[0])));
+      var min = parseFloat(settings.readValue($(plugin[0])));
       
       plugin.each(function() {
-        var val = settings.readValue($(this));
+        var val = parseFloat(settings.readValue($(this)));
         if (val != null) {
           min = Math.min( min, val );
           max = Math.max( max, val );
@@ -21,7 +21,7 @@
       var range = max - min;
       plugin.each(function() {
         var val = $(this).data('val');
-        var c = nullColor;
+        var c = settings.nullColor;
         if (val != null) {
           var adj = val - min;
           var pct = 1.0 * adj / range;
@@ -34,7 +34,19 @@
     var settings = {
       readValue : function(e) {
         return parseFloat(e.html());
-      }
+      },
+      colorArray : [ 
+        "#2E3436",
+        "#384471",
+        "#4a538a",
+        "#0094fe",
+        "#00c7c9",
+        "#6ad963",
+        "#fff44e",
+        "#fda659",
+        "#ff4a53"
+      ],
+      nullColor : "#333333"
     };
 
     if ( options ) { 
@@ -125,21 +137,23 @@
       if (percent == null)
         return nullColor;
 
-      var colors = colorArray.length;
+      var colors = settings.colorArray.length;
 
       var colorPosition = (percent * (colors - 1));
       var sIndex = Math.floor(colorPosition);
       sIndex = Math.min(colors - 2, sIndex);
 
-      var s = colorArray[sIndex];
-      var e = colorArray[sIndex+1];
+      var s = settings.colorArray[sIndex];
+      var e = settings.colorArray[sIndex+1];
 
       var sHSL = rgbToHsv(hex2num(s));
       var eHSL = rgbToHsv(hex2num(e));
 
       var interiorPercent = (percent * (colors - 1)) - sIndex;
 
-      var dispRGB = hsvToRgb(transition3(interiorPercent, 1, sHSL, eHSL));
+      var hsvResult = transition3(interiorPercent, 1, sHSL, eHSL);
+      console.log(hsvResult);
+      var dispRGB = hsvToRgb(hsvResult);
       return num2hex(dispRGB);
     };
 
@@ -161,21 +175,6 @@
       var value= transition(value, maximum, s[2], e[2]); // v
       return [hue, saturation, value];
     }
-
-      // min to max, evenly spaced
-      var colorArray = [ 
-        "#2E3436",
-        "#384471",
-        "#4a538a",
-        "#0094fe",
-        "#00c7c9",
-        "#6ad963",
-        "#fff44e",
-        "#fda659",
-        "#ff4a53"
-      ];
-
-      var nullColor = "#333333";
 
       init();
 
