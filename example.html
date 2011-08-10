@@ -34,7 +34,7 @@
     $("#test2 li").hottie(
       {
       readValue : function(e) {
-        var x = $(e.firstChild);
+        var x = $(e).children(":first").html();
         console.log(e);
         return parseFloat(x);
       }
