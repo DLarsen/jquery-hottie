@@ -152,7 +152,7 @@
       var interiorPercent = (percent * (colors - 1)) - sIndex;
 
       var hsvResult = transition3(interiorPercent, 1, sHSL, eHSL);
-      console.log(hsvResult);
+
       var dispRGB = hsvToRgb(hsvResult);
       return num2hex(dispRGB);
     };
