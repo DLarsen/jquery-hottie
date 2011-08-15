@@ -163,6 +163,17 @@
     }
 
     function transition3(value, maximum, s, e) {
+
+      //handle situation where greyscale colors have red hue
+      if (s[1] == 0) s[0] = e[0];
+      if (e[1] == 0) e[0] = s[0];
+
+
+      // handle black saturation issue
+      if (s[2] == 0) s[1] = e[1];
+      if (e[2] == 0) e[1] = s[1];
+      
+      
       var p = value / maximum;
       // hue has to wrap correctly around zero
 
@@ -171,7 +182,8 @@
 
       var hue = (distCW <= distCCW) ? s[0] + (distCW * p) : s[0] - (distCCW * p);
       if (hue < 0) hue += 1;
-      var saturation= transition(value, maximum, s[1], e[1]); // s
+
+      var saturation = transition(value, maximum, s[1], e[1]); // s
       var value= transition(value, maximum, s[2], e[2]); // v
       return [hue, saturation, value];
     }
