@@ -22,7 +22,7 @@
       plugin.each(function() {
         var val = $(this).data('val');
         var c = settings.nullColor;
-        if (val != null) {
+        if (val != null || range == 0) {
           var adj = val - min;
           var pct = 1.0 * adj / range;
           c = getColor(pct);
