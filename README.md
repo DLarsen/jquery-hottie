@@ -1,7 +1,9 @@
 JQuery Hottie Plugin
 ====================
 
-Use this library to get heatmap background-coloring for elements.
+    "Awesome! You just saved my life."  - JQuery Hottie User.
+
+Easy heatmap-style background-coloring for HTML elements.
 
 In its most simple form, it parses the html contents of the selected elements and parses them as floats.
 
