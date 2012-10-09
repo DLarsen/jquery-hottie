@@ -54,3 +54,5 @@ You can also pass in a color scheme as an array.  Low order colors correspond to
         "#999999"
       ]
     });
+
+See this all in an <a href="http://jsfiddle.net/hnSBm/">example on JSFiddle</a>.
