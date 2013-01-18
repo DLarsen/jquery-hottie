@@ -18,6 +18,7 @@
       "url": "https://github.com/DLarsen/jquery-hottie/blob/master/MIT-LICENSE.txt"
     }
   ],
+  "demo": "http://jsfiddle.net/hnSBm/"
   "bugs": "https://github.com/DLarsen/jquery-hottie/issues",
   "homepage": "https://github.com/DLarsen/jquery-hottie",
   "dependencies": {
