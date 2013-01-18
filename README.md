@@ -40,21 +40,19 @@ Frequently, the numeric values used for coloring will not be found in the conten
 
 You can also pass in a color scheme as an array.  Low order colors correspond to low values.  High order values correspond to high values.
 
-    <ul id="example3">
-      <li>1</li>
-      <li>2</li>
-      <li>3</li>
-      <li>4</li>
-      <li>5</li>
-      <li>6</li>
-      <li>7</li>
-    </ul>
+    <table id="myTable">
+        <tr><td>2.59</td><td>0.68</td><td>1.35</td><td>1.35</td><td>2.03</td><td>1.60</td></tr>
+        <tr><td>1.39</td><td>0.70</td><td>1.22</td><td>1.08</td><td>1.00</td><td>2.12</td></tr>
+        <tr><td>2.87</td><td>0.59</td><td>1.22</td><td>0.57</td><td>1.08</td><td>3.00</td></tr>
+        <tr><td>0.99</td><td>0.25</td><td>0.48</td><td>0.50</td><td>0.99</td><td>1.77</td></tr>
+    </table>
 
-    $("#example3 li").hottie({
-      colorArray : [ 
-        "#0000ff",
-        "#999999"
-      ]
+    $("#myTable td").hottie({
+        colorArray : [ 
+            "#63BE7B",
+            "#FBE983",
+            "#F8696B"
+        ]
     });
 
-See this all in an <a href="http://jsfiddle.net/hnSBm/">example on JSFiddle</a>.
+See this all in an <a href="http://jsfiddle.net/larsenal/z3mUb/">example on JSFiddle</a>.
