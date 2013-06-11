@@ -55,4 +55,4 @@ You can also pass in a color scheme as an array.  Low order colors correspond to
         ]
     });
 
-See this all in an <a href="http://jsfiddle.net/larsenal/z3mUb/">example on JSFiddle</a>.
+See this all in an <a href="http://jsfiddle.net/larsenal/zVPka/">example on JSFiddle</a>.
