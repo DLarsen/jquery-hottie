@@ -1,4 +1,3 @@
-
 ;(function($) {
 
   $.fn.hottie = function(options) {
@@ -6,12 +5,12 @@
     var plugin = $(this);
     
     var init = function() {
-      var max = parseFloat(settings.readValue($(plugin[0])));
-      var min = parseFloat(settings.readValue($(plugin[0])));
+      var max = settings.preMax;
+      var min = settings.preMin;
       
       plugin.each(function() {
         var val = parseFloat(settings.readValue($(this)));
-        if (val != null) {
+        if (val != null && !isNaN(val)) {
           min = Math.min( min, val );
           max = Math.max( max, val );
         }
@@ -22,7 +21,7 @@
       plugin.each(function() {
         var val = $(this).data('val');
         var c = settings.nullColor;
-        if (val != null || range == 0) {
+        if (val != null && !isNaN(val) && range != 0) {
           var adj = val - min;
           var pct = 1.0 * adj / range;
           c = getColor(pct);
@@ -35,6 +34,8 @@
       readValue : function(e) {
         return parseFloat(e.html());
       },
+      preMin : 0,
+      preMax : 0,
       colorArray : [ 
         "#2E3436",
         "#384471",
