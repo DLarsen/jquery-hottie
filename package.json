@@ -1,0 +1,20 @@
+{
+    "name": "jquery.hottie",
+    "version": "0.1.3",
+    "description": "Easy heatmap-style background-coloring for HTML elements.",
+    "main": "jquery.hottie.js",
+    "author": {
+        "name": "David Larsen",
+        "url": "https://github.com/DLarsen"
+    },
+    "repository" : {
+        "type" : "git",
+        "url" : "https://github.com/DLarsen/jquery-hottie"
+    },
+    "licenses": [
+        {
+            "type": "MIT",
+            "url": "http://www.opensource.org/licenses/MIT"
+        }
+    ]
+}
