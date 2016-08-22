@@ -7,13 +7,21 @@
     var init = function() {
       var max = settings.preMax;
       var min = settings.preMin;
+      var symmetrical = settings.symmetrical;
       
       plugin.each(function() {
         var val = parseFloat(settings.readValue($(this)));
         if (val != null && !isNaN(val)) {
-          min = Math.min( min, val );
-          max = Math.max( max, val );
+            if (symmetrical)
+            {
+              max = Math.max( max, Math.abs(val) );
+              min = -max;
+            } else {
+              min = Math.min( min, val );
+              max = Math.max( max, val );
+            }
         }
+
         $(this).data('val', val);
       });
 
@@ -34,6 +42,7 @@
       readValue : function(e) {
         return parseFloat(e.html());
       },
+      symmetrical: false,
       preMin : 0,
       preMax : 0,
       colorArray : [ 
