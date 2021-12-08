@@ -10,11 +10,11 @@ In its most simple form, it parses the html contents of the selected elements an
 Given the following markup:
 
     <ul id="example1">
-      <li>1<li>
-      <li>2<li>
-      <li>3<li>
-      <li>4<li>
-      <li>5<li>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+      <li>5</li>
     </ul>
 
     $('ul#example1 li').hottie();
